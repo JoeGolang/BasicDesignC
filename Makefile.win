@@ -1,0 +1,30 @@
+# Project: Hero Harvest
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe -D__DEBUG__
+CC   = gcc.exe -D__DEBUG__
+WINDRES = windres.exe
+RES  = 
+OBJ  = main_Hero.o $(RES)
+LINKOBJ  = main_Hero.o $(RES)
+LIBS =  -L"D:/Dev-Cpp/lib" -L"D:/PBO/sdl/New folder/SDL-1.2.15/lib" -lconio -mwindows -lmingw32 -lSDLmain -lSDL -lSDL_ttf -lSDL_mixer  -lgmon -pg  -g3 
+INCS =  -I"D:/Dev-Cpp/include" 
+CXXINCS =  -I"D:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"D:/Dev-Cpp/include/c++/3.4.2/backward"  -I"D:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"D:/Dev-Cpp/include/c++/3.4.2"  -I"D:/Dev-Cpp/include"  -I"D:/PBO/sdl/New folder/SDL-1.2.15/include" 
+BIN  = "Hero Harvest.exe"
+CXXFLAGS = $(CXXINCS)   -pg -g3
+CFLAGS = $(INCS)   -pg -g3
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before "Hero Harvest.exe" all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Hero Harvest.exe" $(LIBS)
+
+main_Hero.o: main_Hero.cpp
+	$(CPP) -c main_Hero.cpp -o main_Hero.o $(CXXFLAGS)
